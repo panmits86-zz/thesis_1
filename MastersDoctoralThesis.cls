@@ -209,7 +209,7 @@
 
 \NewDocumentCommand{\thesistitle} { o m }{%
  \IfValueTF{#1}{\def\shorttitle{#1}}{\def\shorttitle{#2}}%
- \def\@title{#2}%
+ \def\thesistitle{#2}%
  \def\ttitle{#2}%
 }
 \DeclareDocumentCommand{\author}{m}{\newcommand{\authorname}{#1}\renewcommand{\@author}{#1}}
@@ -341,14 +341,14 @@ KOMA-script documentation for details.}]{fancyhdr}
 \DeclareDocumentCommand{\abstracttitlefont}{}{}
 \newcommand{\byname}{by}
 \newcommand{\abstractname}{Abstract}
-\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{by}
+\providecaptionname{german,ngerman,austrian,naustrian,greek}{\byname}{από τον}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish,greek}{\byname}{by}
 \ifbool{consistentlayout}{
 	\DeclareDocumentEnvironment{abstract}{ O{} }{%
 		\addchap*{\abstractname}%
 		{\chapteralign\normalsize\abstractauthorfont \authorname \par}% Author name
 		\vspace{\baselineskip}
-		{\chapteralign\parbox{.7\linewidth}{\chapteralign\normalsize\itshape\abstracttitlefont\@title}\par}% Thesis title
+		{\chapteralign\parbox{.7\linewidth}{\chapteralign\normalsize\itshape\abstracttitlefont\thesistitle}\par}% Thesis title
 		\bigskip\noindent\ignorespaces
 	}%
 	{}%end alt-abstract
@@ -368,7 +368,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 			\bigskip
 			{\normalsize \degreename\par}% Degree name
 			\bigskip
-			{\normalsize\bfseries \@title \par}% Thesis title
+			{\normalsize\bfseries \thesistitle \par}% Thesis title
 			\medskip
 			{\normalsize \byname{} \authorname \par}% Author name
 			\bigskip
@@ -394,7 +394,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\bigskip
 		{\normalsize \degreename\par}% Degree name
 		\bigskip
-		{\normalsize\bfseries \@title \par}% Thesis title
+		{\normalsize\bfseries \thesistitle \par}% Thesis title
 		\medskip
 		{\normalsize \byname{} \authorname \par}% Author name
 		\bigskip
